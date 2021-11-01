@@ -1,0 +1,105 @@
+[DISK]
+command=df -h / | awk '/\//{ printf("SDB:%4s/%s \n", $4, $2) }'
+interval=2
+color=#0b2d2d
+background=#c7e690
+
+[cputemp]
+command=~/.config/i3blocks/modules/cputemp -tg '{temp}' '<' 71 -tw '{temp}' '>' 70 -tc '{temp}' '>' 90
+instance=Core 0
+interval=2
+color=#0b2d2d
+background=#c7e690
+
+[MEM]
+command=free -h | awk '/Mem:/ { printf("MEM: %5s/%s \n", $3, $2) }'
+interval=1
+color=#0b2d2d
+background=#c7e690
+
+[TIME_DATE]
+command=date +"%H:%M "
+interval=1
+color=#0b2d2d
+background=#c7e690
+align=center
+
+[BATTERY]
+command=~/.config/i3blocks/battery/battery_info.sh
+interval=3
+background=#c7e690
+
+#[WEATHER_SIGNALER]
+#command=~/.config/i3blocks/weather/weather_signaler
+#interval=once
+
+#[WEATHER]
+#command=~/.config/i3blocks/weather/weather_info.sh
+#interval=300
+#color=#4D6739
+#signal=2
+
+#[weather]
+#command=curl -Ss 'https://wttr.in?0&T&Q' | cut -c 16- | head -2 | xargs echo
+#interval=3600
+#color=#4D6739
+
+#[simple]
+#full_text=This is a looong white on red text
+#short_text=Short white on red text
+#background=#FF0000
+#color=#FFFFFF
+
+## Block with a fixed width
+#[aligned]
+#full_text=Here.
+#min_width=100
+#align=center
+
+## Fancy text with multiple colors and shapes
+#[funky]
+#full_text=<span foreground="red" size="x-large">Roses</span> and <i><span color="#EE37B8">violets</span></i>!
+#markup=pango
+
+## Fetch the public IP address only on startup
+#[public-ip]
+#command=wget -qO - icanhazip.com
+#interval=once
+
+## Print click data
+#[clickme]
+#align=center
+#full_text=Click me!
+#min_width=Button=? x=? y=?
+#command=echo "Button=$button x=$x y=$y"
+
+#[SOUND]
+#full_text=🔇: 0% 
+#command=~/.config/i3blocks/sound/sound_info.sh
+#interval=0
+#signal=1
+
+#[text]
+#full_text=<span foreground="#c05857" size="x-large">◥</span>
+#markup=pango
+
+#[tun1]
+#command=echo THM: $(ip route show | head -2 | tail -1 | awk '{print $9}')
+#interval=once
+#color=#0b2d2d
+#background=#0f161e
+
+#[tun2]
+#command=echo HTB: $(ip route show | head -5 | tail -1 | awk '{print $9}')
+#interval=once
+#color=#0b2d2d
+#background=#0f161e
+
+#[CPU]
+#full_text=CPU 0.00% @ +00.0°C 
+#command=~/.config/i3blocks/cpu/cpu_info.sh
+#interval=repeat
+#color=#bfbfbf
+#background=#00ff93
+
+# ◤ ◥ ◣ ◢
