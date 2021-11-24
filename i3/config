@@ -31,7 +31,7 @@ set $right semicolon
 
 # Set inner/outer gaps
 gaps inner 10
-gaps outer 20
+gaps outer 10
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
 # gaps inner|outer current|all set|plus|minus <px>
@@ -207,9 +207,7 @@ set $transparent #000000
 #### COLORS #######################################
 
 # XRESOURCES
-#set_from_resource $fg foreground
-set $act "#599e71"
-set $fg "#599e71"
+set $fg "#d54619"
 set $bg "#263240"
 
 # CLASS                 BORDER  BACK    TEXT    INDICATOR
@@ -227,21 +225,22 @@ bar {
         separator_symbol " "
         workspace_buttons yes
         colors {
-		background #c7e690
+		background #010010
 		statusline $fg
 		separator $fg
 
-		focused_workspace  #599e71 #599e71 #263240
-	        active_workspace   #599e7100 #599e7100 #263240
-        	inactive_workspace #599e7100 #599e7100 #263240
-      		urgent_workspace   #599e7100 #599e7100 #263240
-        	binding_mode       #599e7100 #599e7100 #263240
+		focused_workspace  $fg $bg $fg
+	        active_workspace   $fg $fg $bg
+        	inactive_workspace $fg $fg $bg
+      		urgent_workspace   $fg $fg $bg
+        	binding_mode       $fg $fg $bg
         }
 }
 
 exec i3-config-wizard
 exec --no-startup-id nm-applet
-exec --no-startup-id nitrogen --restore
+#exec --no-startup-id nitrogen --restore
+exec --no-startup-id feh --bg-fill /home/wolfy/Pictures/witcher_dark-2560x1440.jpg
 exec --no-startup-id numlockx on &
 exec --no-startup-id xsetroot -cursor_name left_ptr &
 exec --no-startup-id setxkbmap -model pc104 -layout hu &

@@ -1,33 +1,36 @@
+separator=false
+separator_block_width=5
+
 [DISK]
 command=df -h / | awk '/\//{ printf("SDB:%4s/%s \n", $4, $2) }'
 interval=2
-color=#0b2d2d
-background=#c7e690
+color=#fe920b
+background=#010010
 
 [cputemp]
 command=~/.config/i3blocks/modules/cputemp -tg '{temp}' '<' 71 -tw '{temp}' '>' 70 -tc '{temp}' '>' 90
 instance=Core 0
 interval=2
-color=#0b2d2d
-background=#c7e690
+color=#fe920b
+background=#010010
 
 [MEM]
 command=free -h | awk '/Mem:/ { printf("MEM: %5s/%s \n", $3, $2) }'
 interval=1
-color=#0b2d2d
-background=#c7e690
+color=#fe920b
+background=#010010
 
 [TIME_DATE]
 command=date +"%H:%M "
 interval=1
-color=#0b2d2d
-background=#c7e690
+color=#fe920b
+background=#010010
 align=center
 
 [BATTERY]
 command=~/.config/i3blocks/battery/battery_info.sh
 interval=3
-background=#c7e690
+background=#010010
 
 #[WEATHER_SIGNALER]
 #command=~/.config/i3blocks/weather/weather_signaler
@@ -86,13 +89,13 @@ background=#c7e690
 #[tun1]
 #command=echo THM: $(ip route show | head -2 | tail -1 | awk '{print $9}')
 #interval=once
-#color=#0b2d2d
+#color=#fe920b
 #background=#0f161e
 
 #[tun2]
 #command=echo HTB: $(ip route show | head -5 | tail -1 | awk '{print $9}')
 #interval=once
-#color=#0b2d2d
+#color=#fe920b
 #background=#0f161e
 
 #[CPU]
