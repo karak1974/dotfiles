@@ -5,32 +5,32 @@ separator_block_width=5
 command=df -h / | awk '/\//{ printf("SDB:%4s/%s \n", $4, $2) }'
 interval=2
 color=#fe920b
-background=#c8e690
+background=#010010
 
 [cputemp]
 command=~/.config/i3blocks/modules/cputemp -tg '{temp}' '<' 71 -tw '{temp}' '>' 70 -tc '{temp}' '>' 90
 instance=Core 0
 interval=2
 color=#fe920b
-background=#c8e690
+background=#010010
 
 [MEM]
 command=free -h | awk '/Mem:/ { printf("MEM: %5s/%s \n", $3, $2) }'
 interval=1
 color=#fe920b
-background=#c8e690
+background=#010010
 
 [TIME_DATE]
 command=date +"%H:%M "
 interval=1
 color=#fe920b
-background=#c8e690
+background=#010010
 align=center
 
 [BATTERY]
 command=~/.config/i3blocks/battery/battery_info.sh
 interval=3
-background=#c8e690
+background=#010010
 
 #[WEATHER_SIGNALER]
 #command=~/.config/i3blocks/weather/weather_signaler

@@ -207,7 +207,7 @@ set $transparent #000000
 #### COLORS #######################################
 
 # XRESOURCES
-set $fg "#d54619"
+set $fg "#599e71"
 set $bg "#263240"
 
 # CLASS                 BORDER  BACK    TEXT    INDICATOR
@@ -217,36 +217,35 @@ client.unfocused        $bg     $bg     $fg     $bg
 client.urgent           $bg     $bg     $fg     $bg 
 client.placeholder      $bg     $bg     $fg     $bg 
 
-bar {
-        status_command i3blocks -c ~/.config/i3blocks/config
-        #i3bar_command $HOME/.config/polybar/launch.sh
-        position top
-        strip_workspace_numbers no
-        separator_symbol " "
-        workspace_buttons yes
-        colors {
-		background #010010
-		statusline $fg
-		separator $fg
-
-		focused_workspace  $fg $bg $fg
-	        active_workspace   $fg $fg $bg
-        	inactive_workspace $fg $fg $bg
-      		urgent_workspace   $fg $fg $bg
-        	binding_mode       $fg $fg $bg
-        }
+bar {   
+        # status_command i3blocks -c ~/.config/i3blocks/config
+        i3bar_command $HOME/.config/polybar/launch.sh
+        #position top
+        #strip_workspace_numbers no
+        #separator_symbol " "
+        #workspace_buttons yes
+        #colors {
+	#	background #2e3063
+	#	statusline $fg
+	#	separator $fg
+	#	focused_workspace  $fg $bg $fg
+	#        active_workspace   $fg $fg $bg
+        #	inactive_workspace $fg $fg $bg
+      	#	urgent_workspace   $fg $fg $bg
+        #	binding_mode       $fg $fg $bg
+        #}
 }
 
-exec i3-config-wizard
+#exec i3-config-wizard
 exec --no-startup-id nm-applet
 #exec --no-startup-id nitrogen --restore
-exec --no-startup-id feh --bg-fill /home/wolfy/Pictures/witcher_dark-2560x1440.jpg
 exec --no-startup-id numlockx on &
 exec --no-startup-id xsetroot -cursor_name left_ptr &
 exec --no-startup-id setxkbmap -model pc104 -layout hu &
 exec --no-startup-id xrandr --setprovideroutputsource modesetting NVIDIA-0
 exec --no-startup-id xrandr --auto
 exec --no-startup-id dunst & 
+exec_always feh --bg-fill /home/wolfy/Pictures/wallpaper_tree.jpg
 exec_always --no-startup-id "killall -q /usr/bin/picom; /usr/bin/picom --xrender-sync-fence --config ~/.config/picom/picom.conf -b"
 #exec_always --no-startup-id fetchcord --nohardware --noshell --nohost &
 exec_always --no-startup-id udiskie &
