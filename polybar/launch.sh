@@ -9,7 +9,6 @@ while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 # Launch bar1 and bar2
 MONITORS=$(xrandr --query | grep " connected" | cut -d" " -f1)
 
-MONITORS=$MONITORS polybar left &
-MONITORS=$MONITORS polybar right;
+MONITORS=$MONITORS polybar main;
 
 echo "Bars launched..."

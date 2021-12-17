@@ -28,8 +28,8 @@ primary = #ffb52a
 secondary = #e60053
 alert = #bd2c40
 
-[bar/left]
-width = 15%
+[bar/main]
+width = 100%
 height = 27
 radius = 10.0
 fixed-center = false
@@ -54,54 +54,23 @@ font-0 = fixed:pixelsize=10;1
 font-1 = Hack Nerd Font:pixelsize=10;1
 font-2 = siji:pixelsize=10;1
 
-modules-left = i3
+modules-left = i3 title
 modules-center =
-modules-right =
-
-tray-position = all
-tray-padding = 3
-
-cursor-click = pointer
-cursor-scroll = ns-resize
-
-[bar/right]
-width = 39%
-height = 27
-offset-x = 61%
-radius = 10.0
-fixed-center = false
-override-redirect = true
-
-background = ${colors.background}
-foreground = ${colors.foreground}
-
-line-size = 3
-line-color = #f00
-
-border-size = 4
-border-color = #00000000
-
-padding-left = 0
-padding-right = 18
-margin-bottom = 2
-
-module-margin-left = 1
-module-margin-right = 2
-
-font-0 = fixed:pixelsize=10;1
-font-1 = Hack Nerd Font:pixelsize=10;1
-font-2 = siji:pixelsize=10;1
-
-modules-left =
-modules-center =
-modules-right = pulseaudio memory cpu temperature wlan eth0 eth1 date battery powermenu
+modules-right = pulseaudio memory cpu temperature wlan eth0 date battery powermenu
 
 tray-position = right
-tray-detached = true
+tray-detached = false
 tray-padding = 3
 
 cursor-click = pointer
 cursor-scroll = ns-resize
+
+[module/title]
+type = internal/xwindow
+format = <label>
+label = %title%
+
+format-foreground = ${colors.foreground-alt}
 
 [module/i3]
 type = internal/i3
@@ -230,11 +199,11 @@ bar-volume-foreground-5 = #f5a70a
 bar-volume-foreground-6 = #ff5555
 bar-volume-gradient = false
 bar-volume-indicator = |
-bar-volume-indicator-font = 2
+bar-volume-indicator-font = 1
 bar-volume-fill = ─
-bar-volume-fill-font = 2
+bar-volume-fill-font = 1
 bar-volume-empty = ─
-bar-volume-empty-font = 2
+bar-volume-empty-font = 1
 bar-volume-empty-foreground = ${colors.foreground-alt}
 
 [module/battery]
@@ -247,7 +216,7 @@ format-charging = <animation-charging> <label-charging>
 
 format-discharging = <ramp-capacity> <label-discharging>
 
-format-full-prefix = " "
+format-full-prefix = " "
 format-full-prefix-foreground = ${colors.foreground-alt}
 
 ramp-capacity-0 = " "
