@@ -14,9 +14,9 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && notify-send Volume $(awk -F'[][]' '/dB/ { print $2 }' <(amixer sget Master)) && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && notify-send Volume $(awk -F'[][]' '/dB/ { print $2 }' <(amixer sget Master)) && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && notify-send Volume $(awk -F'[][]' '/dB/ { print $2 }' <(amixer sget Master)) && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 # Set the mod key
@@ -207,8 +207,8 @@ set $transparent #000000
 #### COLORS #######################################
 
 # XRESOURCES
-set $fg "#599e71"
-set $bg "#263240"
+set $fg "#a57551"
+set $bg "#674430"
 
 # CLASS                 BORDER  BACK    TEXT    INDICATOR
 client.focused          $fg     $fg     $bg     $fg
@@ -218,22 +218,22 @@ client.urgent           $bg     $bg     $fg     $bg
 client.placeholder      $bg     $bg     $fg     $bg 
 
 bar {   
-        # status_command i3blocks -c ~/.config/i3blocks/config
-        i3bar_command $HOME/.config/polybar/launch.sh
-        #position top
+        status_command i3blocks -c ~/.config/i3blocks/config
+        #i3bar_command $HOME/.config/polybar/launch.sh
+        position top
         #strip_workspace_numbers no
         #separator_symbol " "
         #workspace_buttons yes
-        #colors {
-	#	background #2e3063
-	#	statusline $fg
-	#	separator $fg
-	#	focused_workspace  $fg $bg $fg
-	#        active_workspace   $fg $fg $bg
-        #	inactive_workspace $fg $fg $bg
-      	#	urgent_workspace   $fg $fg $bg
-        #	binding_mode       $fg $fg $bg
-        #}
+        colors {
+		background #100f0d
+		statusline $fg
+		separator $fg
+		focused_workspace  $fg $bg $fg
+	        active_workspace   $fg $fg $bg
+        	inactive_workspace $fg $fg $bg
+      		urgent_workspace   $fg $fg $bg
+        	binding_mode       $fg $fg $bg
+        }
 }
 
 #exec i3-config-wizard
@@ -245,7 +245,7 @@ exec --no-startup-id setxkbmap -model pc104 -layout hu &
 exec --no-startup-id xrandr --setprovideroutputsource modesetting NVIDIA-0
 exec --no-startup-id xrandr --auto
 exec --no-startup-id dunst & 
-exec_always feh --bg-fill /home/wolfy/Pictures/wallpaper_tree.jpg
+exec_always feh --bg-fill /home/wolfy/Pictures/wallpaper_cat.jpg
 exec_always --no-startup-id "killall -q /usr/bin/picom; /usr/bin/picom --xrender-sync-fence --config ~/.config/picom/picom.conf -b"
 #exec_always --no-startup-id fetchcord --nohardware --noshell --nohost &
 exec_always --no-startup-id udiskie &
