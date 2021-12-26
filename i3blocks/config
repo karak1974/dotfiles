@@ -1,6 +1,28 @@
 separator=false
 separator_block_width=5
 
+[current]
+full_text=
+command=~/.config/i3blocks/current_media.sh
+interval=1
+color=#a57551
+
+[play-pause]
+full_text=<span size="x-large">懶</span>
+command=playerctl play-pause
+color=#a57551
+markup=pango
+
+[previous]
+full_text=玲
+command=playerctl previous
+color=#a57551
+
+[next]
+full_text=怜
+command=playerctl next
+color=#a57551
+
 [CPU]
 full_text= 0.00% @ +00.0°C
 command=~/.config/i3blocks/cpu.sh
